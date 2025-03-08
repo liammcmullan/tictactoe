@@ -1,0 +1,37 @@
+<!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="https://lucide.dev/assets/logo.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tic Tac Toe Game</title>
+      </head>
+      <body>
+        <div class="container mx-auto p-4">
+          <h1 class="text-3xl font-bold mb-4">Tic Tac Toe Game</h1>
+          <div class="grid grid-cols-3 gap-4">
+            {board.map((row, rowIndex) => (
+              <div key={rowIndex} class="flex justify-center items-center">
+                {row.map((cell, cellIndex) => (
+                  <button
+                    key={cellIndex}
+                    class={`w-12 h-12 bg-gray-200 rounded-lg flex justify-center items-center text-lg ${cell === 'X' ? 'text-red-500' : cell === 'O' ? 'text-blue-500' : ''}`}
+                    onClick={() => handleCellClick(rowIndex, cellIndex)}
+                  >
+                    {cell}
+                  </button>
+                ))}
+              </div>
+            ))}
+          </div>
+          <div class="flex justify-center items-center mt-4">
+            <button
+              class="bg-gray-200 hover:bg-gray-300 text-lg py-2 px-4 rounded-lg"
+              onClick={handleRestartGame}
+            >
+              Restart Game
+            </button>
+          </div>
+        </div>
+      </body>
+    </html>
